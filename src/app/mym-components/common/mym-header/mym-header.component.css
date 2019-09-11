@@ -1,0 +1,25 @@
+.navbar{
+    width: 90%;
+    margin: 0 auto;
+    /* height: 90px; */
+}
+.mym-icon-head{
+    text-align: center !important;
+    font-size: 22px;
+    color: #6d7278;
+}
+.icon-text{
+    padding-top: 0;   
+}
+@media screen and (max-width: 992px) {
+    .mym-icon-head{
+       display: inline;     
+    }
+    .icon-text{
+     display: inline;
+     padding-left:8px;
+    }
+    .m-auto {
+        margin:0 !important;
+    }
+  }

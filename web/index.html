@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base href="/">
+  <title>test de la widget</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+  <app-widget-content id="Widget-Content" ></app-widget-content>
+  <app-widget-connexion></app-widget-connexion>
+
+<script type="text/javascript" src="https://www-test.mym.awsmpsa.com/mym-widget.js"></script>
+<script>
+    let Params= {
+
+        country: "FR",
+
+        language:"fr",
+
+        brand:"AC",
+
+    };
+    document.getElementById('Widget-Content').innerHTML = "<app-widget-content id=\"Widget-Content\" input_country="+ Params.country+" input_language=" + Params.language+" input_brand="+ Params.brand+"></app-widget-content>";
+</script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+	/////////////////////////////////////
+	// INSTALL AND DEPLOY APPLICATION
+	/////////////////////////////////////
+   def stageDeploy(String targetEnvironment) {
+	   stage('Deploy') {
+		   sh "bash ./scripts/deploy.sh ${targetEnvironment} "
+	   }
+	}
+
+	////////////////////////////////////
+
+   return this

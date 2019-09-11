@@ -1,0 +1,45 @@
+node () {
+    def projectName = env.BRANCH_NAME.toLowerCase().replaceAll(/[^a-z0-9]/, "");
+    def directory = pwd();
+    String currentDate = new java.text.SimpleDateFormat("yyyyMMddHHmmss").format(new Date());
+    def targetEnvironment = 'www-test.mym.awsmpsa.com';
+
+    printf('current branch %1s', [env.BRANCH_NAME]);
+    printf('current target environment %1s', [targetEnvironment]);
+
+    timestamps {
+    try {
+            // Checkout
+            stageCheckout()
+
+            //load common jenkinsfile
+            def rootDir = pwd()
+            def functions = load "${rootDir}/Jenkinsfile_common"
+
+            //Install and deploy
+            functions.stageDeploy(targetEnvironment)
+
+
+        } catch(e) {
+            throw e;
+        } finally {
+            try{
+                //check
+            } catch(ex) {
+                println(ex.toString());
+            }
+        }
+    }
+}
+
+
+////////////////////////////////////
+// GIT PULL FOR JENKINS
+///////////////////////////////////
+def stageCheckout() {
+    stage('Checkout') {
+        deleteDir()
+        checkout scm
+    }
+}
+
